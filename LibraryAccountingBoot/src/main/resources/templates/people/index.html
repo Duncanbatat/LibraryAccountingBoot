@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все читатели</title>
+</head>
+<body>
+<a th:href="@{index.jsp}">Назад к общему списку</a>
+<br/>
+<br/>
+<h3><label for="people">Читатели:</label></h3>
+<div th:each="person : ${people}" id="people">
+    <a th:href="@{people/{id}(id=${person.getId()})}"
+       th:text="${person.getFullName() + ', ' + person.getYearOfBirth()}">Person</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/people/new">Создать карточку нового читателя</a>
+
+</body>
+</html>
